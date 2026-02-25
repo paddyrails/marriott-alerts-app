@@ -124,18 +124,16 @@ Header: `Authorization: Bearer <token>`
 
 Task model:
 ```ts
-type Task = {
-  id: string;
-  title: string;
-  description?: string | null;
-  completed: boolean;
-  createdAt: string;
-  updatedAt: string;
+type AlertDef = {
+    id: string;
+    name: string;
+    awsAccountId: string;
+    maxBillAmount: 0;
+    alertRecipientEmails: string;  
 };
 
-If your backend differs, adjust the API modules accordingly.
 
-App Behavior Requirements
+### App Behavior Requirements
 Routing
 
 /login (public)
@@ -164,7 +162,7 @@ register(email, password, name?)
 
 logout()
 
-Token storage:
+### Token storage:
 
 Store in localStorage for persistence (simple approach)
 
@@ -174,7 +172,7 @@ Also keep in memory state for immediate use
 
 Axios interceptor should catch 401 and call logout() and redirect to /login
 
-UI Requirements (MUI)
+### UI Requirements (MUI)
 
 AppShell layout with top nav
 
@@ -206,7 +204,7 @@ Password min length 8
 
 Task title required, max 200
 
-Data Fetching
+### Data Fetching
 
 Use React Query:
 
@@ -216,7 +214,7 @@ useMutation for create/update/delete
 
 Invalidate queries after mutation
 
-UX
+### UX
 
 Consistent loading spinner component
 
@@ -240,7 +238,7 @@ Response interceptor handles 401 globally
 
 Return typed responses and centralize error shaping.
 
-Tests (Minimum)
+### Tests (Minimum)
 
 Using Vitest + React Testing Library:
 
@@ -252,7 +250,7 @@ Tasks: renders empty state when API returns no items (mock API)
 
 Mock API using MSW or axios mocking (pick one, prefer MSW if comfortable).
 
-Scripts (package.json)
+### Scripts (package.json)
 
 Include:
 
@@ -268,7 +266,7 @@ lint
 
 format
 
-Cursor Execution Steps (Generate Code)
+## Cursor Execution Steps (Generate Code)
 
 Initialize Vite React TS project under frontend/
 
@@ -288,7 +286,7 @@ Add tests and ensure npm test passes
 
 Add README with setup steps
 
-Acceptance Checklist
+### Acceptance Checklist
 
  npm run dev starts app
 
@@ -308,7 +306,7 @@ Acceptance Checklist
 
  .env.example + README included
 
-Notes
+## Notes
 
 Keep components small and reusable.
 
