@@ -133,8 +133,8 @@ type AlertDef = {
 };
 ```
 
-### App Behavior Requirements
-Routing
+## App Behavior Requirements
+### Routing
 
 /login (public)
 
@@ -148,7 +148,7 @@ Routing
 
 * → NotFound
 
-Auth Handling
+### Auth Handling
 
 Implement AuthContext providing:
 
