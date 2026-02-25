@@ -131,7 +131,7 @@ type AlertDef = {
     maxBillAmount: 0;
     alertRecipientEmails: string;  
 };
-
+```
 
 ### App Behavior Requirements
 Routing
